@@ -1,0 +1,15 @@
+CRITICAL - 2024-09-22 16:07:36 --> mysqli_sql_exception: Table 'batubara.tbl_lokasi' doesn't exist in engine
+in APPPATH\Views\v_home.php on line 20.
+ 1 APPPATH\Views\v_home.php(20): mysqli->query('SELECT * FROM tbl_lokasi')
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\fileku\\gis11\\app\\Views\\v_home.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('v_home', [], true)
+ 5 APPPATH\Views\v_template.php(248): view('v_home')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\fileku\\gis11\\app\\Views\\v_template.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('v_template', [], true)
+ 9 APPPATH\Controllers\Home.php(14): view('v_template', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Home->index()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

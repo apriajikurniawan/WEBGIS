@@ -1,0 +1,49 @@
+<div id="map" style="width: 100%; height: 100vh;"></div>
+
+<script>
+    var peta4 = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        maxZoom: 18,
+        id: 'mapbox/outdoors-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'pk.eyJ1IjoibWFyZGFsaXVzIiwiYSI6ImNsZnVtbDdtZzAyYjMzdXRhdDN6djY5cWoifQ.Xqtyqa7hvGhQla2oAwpG_Q'
+    });
+
+    var peta2 = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+        attribution: '© Google Maps',
+        maxZoom: 20,
+    });
+
+    const map = L.map('map', {
+	center: [2.973210620080586, 99.62798835339656],
+	zoom: 17,
+	layers: [peta4]
+    });
+
+    const baseLayers = {
+	'Default': peta4,
+    'GMaps': peta2,
+    };
+
+    const layerControl = L.control.layers(baseLayers).addTo(map);
+        
+    //POLYGON
+    L.polygon([
+        [2.9728327125791885, 99.63062172994822],
+        [2.973044440470305, 99.63064315681633],
+        [2.9730323138207226, 99.63089983123517],
+        [2.9727510465549556, 99.63086948550618]
+    ],{color : 'red',
+        weight : 8,
+    }).bindPopup("Area Kuburan").addTo(map);
+
+    L.polygon([
+        [2.9751891701729725, 99.629390802905],
+        [2.975370644872861, 99.62957520475629],
+        [2.975084035368195, 99.62956246427095],
+        [2.975219304350847, 99.62993730295678]
+    ],{color : 'gray',
+        weight : 8,
+    }).bindPopup("Area Imam Bonjol").addTo(map);
+
+</script>

@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base target="_top">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Layers Control Tutorial - Leaflet</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <style>
+        #map {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            border-radius: 20px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            border: 2px solid;
+        }
+
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+
+        }
+
+        .leaflet-container {
+            height: 400px;
+            width: 600px;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-12">
+                        <h1 class="m-0" align="center">Area <?= $judul ?></h1>
+                        <br>
+                        <div class="peta" align="center">
+                            <!-- MAP -->
+                            <div id="map"></div>
+                        </div>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+    </div>
+</body>
+
+<script>
+    // const map = L.map('map').setView([2.963891864663927, 99.8011165457295], 13);
+
+    // const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    //     maxZoom: 17,
+    //     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    // }).addTo(map);
+
+    // const marker = L.marker([2.963891864663927, 99.8011165457295]).addTo(map)
+    //     .bindPopup('<b>TANJUNGBALAI</b><br />Lapangan Sultan Abdul Jalil.').openPopup();
+
+    // const circle = L.circle([2.963891864663927, 99.8011165457295], {
+    //     color: 'blue',
+    //     fillColor: '#00ff37',
+    //     fillOpacity: 0.5,
+    //     radius: 100
+    // }).addTo(map).bindPopup('Alun alun Sultan Abdul Jalil.');
+
+
+
+
+    var peta1 = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFyZGFsaXVzIiwiYSI6ImNsZnVtbDdtZzAyYjMzdXRhdDN6djY5cWoifQ.Xqtyqa7hvGhQla2oAwpG_Q', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        id: 'mapbox/streets-v11'
+    });
+
+    var peta2 = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+        attribution: '© Google Maps',
+        maxZoom: 20,
+    });
+
+    var peta3 = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+        maxZoom: 20,
+        subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+    });
+
+    var peta4 = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        maxZoom: 18,
+        id: 'mapbox/outdoors-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'pk.eyJ1IjoibWFyZGFsaXVzIiwiYSI6ImNsZnVtbDdtZzAyYjMzdXRhdDN6djY5cWoifQ.Xqtyqa7hvGhQla2oAwpG_Q'
+    });
+
+    var peta5 = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    });
+
+    var peta6 = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFyZGFsaXVzIiwiYSI6ImNsZnVtbDdtZzAyYjMzdXRhdDN6djY5cWoifQ.Xqtyqa7hvGhQla2oAwpG_Q', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        id: 'mapbox/dark-v10'
+    });
+
+    var peta7 = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        maxZoom: 19,
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+            '<a href="https://carto.com/attributions">CARTO</a>'
+    });
+
+    var peta8 = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Map data &copy; <a href="https://www.arcgis.com/">ArcGIS</a>'
+    });
+
+    var peta9 = L.tileLayer('https://{s}.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+        maxZoom: 20,
+        subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+        attribution: 'Map data &copy; <a href="https://www.google.com/maps">Google Maps</a>'
+    });
+
+    var peta10 = L.tileLayer('https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+        maxZoom: 20,
+        subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+        attribution: 'Map data &copy; <a href="https://www.google.com/maps">Google Maps</a>'
+    });
+
+    const map = L.map('map', {
+        center: [2.9641272110709744, 99.80126380212793],
+        zoom: 18,
+        layers: [peta4]
+    });
+
+    const baseLayers = {
+        'Default': peta4,
+        'GMaps': peta2,
+        'Satellite': peta3,
+        'OSM-Mapbox': peta1,
+        'OSM': peta5,
+        'Dark OSM': peta6,
+        'Carto-OSM': peta7,
+        'ArcGIS': peta8,
+        'GMaps-Marker': peta9,
+        'gmaps1': peta10,
+    };
+    const layerControl = L.control.layers(baseLayers).addTo(map);
+
+
+
+    //POLYLINE
+    latlngs = [
+
+        //KECAMATAN TELUK NIBUNG==============================================
+        [3.024267, 99.820027],
+        [2.999497, 99.819169],
+        [2.994354, 99.819341],
+        [2.993754, 99.812216],
+        [2.992554, 99.809555],
+        [2.989554, 99.806893],
+        [2.985241, 99.806697],
+        [2.977141, 99.808328],
+        [2.973541, 99.80292],
+        [2.974355, 99.801332],
+        [2.976611, 99.800285],
+        [2.97944, 99.80123],
+        [2.981325, 99.79977],
+        [2.978925, 99.797109],
+        [2.979541, 99.795967],
+        [2.980612, 99.795324],
+        [2.981755, 99.796342],
+        [2.982155, 99.796397],
+        [2.983098, 99.796055],
+        [2.983555, 99.796063],
+        [2.983941, 99.796685],
+        [2.984541, 99.797071],
+        [2.985998, 99.797286],
+        [2.986834, 99.798123],
+        [2.988055, 99.798767],
+        [2.989441, 99.797814],
+        [2.991026, 99.796741],
+        [2.992912, 99.792792],
+        [2.992355, 99.786311],
+        [2.995141, 99.786828],
+        [2.997155, 99.786699],
+        [3.000155, 99.783867],
+        [3.003026, 99.785626],
+        [3.005426, 99.785927],
+        [3.005598, 99.779703],
+        [3.008812, 99.779915],
+        [3.008812, 99.795196],
+        [3.011726, 99.793479],
+        [3.016826, 99.791891],
+        [3.016997, 99.805025],
+        [3.024583, 99.817901],
+    ];
+    var polygon = L.polygon(latlngs, {
+        color: 'YELLOW'
+    }).addTo(map).bindPopup('KECAMATAN TELUK NIBUNG');
+
+    // zoom the map to the polygon
+    map.fitBounds(polygon.getBounds());
+
+
+
+    //KECAMATAN STR================================================
+
+    //POLYLINE
+    latlngs = [
+
+        //KECAMATAN STR
+        [2.969941, 99.781762],
+        [2.970155, 99.782449], //perbatasan DB
+        [2.970326, 99.783393],
+        [2.969555, 99.784767],
+        [2.969598, 99.785668],
+        [2.971055, 99.78687],
+        [2.971869, 99.788072],
+        [2.971741, 99.78936],
+        [2.970926, 99.790819],
+        [2.970626, 99.792665],
+        [2.972426, 99.793609],
+        [2.973155, 99.795197],
+        [2.972927, 99.806469], //bts tbu - tbs
+        [2.973782, 99.806897],
+        [2.975598, 99.806484],
+        [2.973541, 99.80292],
+        [2.974355, 99.801332],
+        [2.976611, 99.800285],
+        [2.97944, 99.80123],
+        [2.981325, 99.79977],
+        [2.978925, 99.797109],
+        [2.979541, 99.795967],
+        [2.980612, 99.795324],
+        [2.981755, 99.796342],
+        [2.982155, 99.796397],
+        [2.983098, 99.796055],
+        [2.983555, 99.796063],
+        [2.983941, 99.796685],
+        [2.984541, 99.797071],
+        [2.985998, 99.797286],
+        [2.986834, 99.798123],
+        [2.988055, 99.798767],
+        [2.989441, 99.797814],
+        [2.991026, 99.796741],
+        [2.992912, 99.792792],
+        [2.992355, 99.786311],
+        [2.995141, 99.786828],
+        [2.997155, 99.786699],
+        [3.000155, 99.783867],
+        [3.003026, 99.785626],
+        [3.005426, 99.785927],
+        [3.005598, 99.779703],
+        [3.008812, 99.779915],
+        [3.008839, 99.766036],
+
+
+    ];
+    var polygon = L.polygon(latlngs, {
+        color: 'orange'
+    }).addTo(map).bindPopup('KECAMATAN SEI TUALANG RASO');
+
+    // zoom the map to the polygon
+    map.fitBounds(polygon.getBounds());
+    //POLYGON
+
+
+
+
+
+
+
+    //KECAMATAN TBU================================================
+
+    //POLYLINE
+    latlngs = [
+
+        //KECAMATAN TBU
+        [2.971297, 99.797025],
+        [2.968211, 99.796853],
+        [2.966668, 99.79857], //perbatasan DB
+        [2.967868, 99.803635], //perbatasan ARAH KOTA
+        [2.969239, 99.80561],
+        [2.970848, 99.806125],
+        [2.970998, 99.805846],
+        [2.971748, 99.806125],
+        [2.97222, 99.806469],
+        [2.972856, 99.806463],
+        [2.973136, 99.795237],
+
+
+    ];
+    var polygon = L.polygon(latlngs, {
+        color: '#ff00dd'
+    }).addTo(map).bindPopup('KECAMATAN TANJUNGBALAI UTARA');
+
+    // zoom the map to the polygon
+    map.fitBounds(polygon.getBounds());
+    //POLYGON
+
+
+
+
+
+
+
+
+
+
+
+    //KECAMATAN TBS================================================
+
+    //POLYLINE
+    latlngs = [
+
+        //KECAMATAN TBS
+
+        [2.968384, 99.805933],
+        [2.969027, 99.806749],
+        [2.969391, 99.806984],
+        [2.96952, 99.807499],
+        [2.964248, 99.810225], //PERBATASAN DBT
+        [2.962298, 99.806684],
+        [2.959812, 99.80529],
+        [2.958548, 99.805526],
+        [2.957627, 99.80647],
+        [2.956834, 99.807457],
+        [2.956255, 99.805655],
+        [2.955762, 99.804882],
+        [2.957277, 99.804371],
+        [2.956763, 99.802343],
+        [2.956516, 99.802246],
+        [2.956645, 99.801431],
+        [2.956934, 99.801345],
+        [2.956913, 99.798781],
+        [2.956409, 99.798952],
+        [2.956055, 99.798341],
+        [2.95687, 99.79774], //bts db
+        [2.958441, 99.79441],
+        [2.961369, 99.794937],
+        [2.963298, 99.794937],
+        [2.962962, 99.796341],
+        [2.964162, 99.796104],
+        [2.965834, 99.796383],
+
+
+
+    ];
+    var polygon = L.polygon(latlngs, {
+        color: 'red'
+    }).addTo(map).bindPopup('KECAMATAN TANJUNGBALAI SELATAN');
+
+    // zoom the map to the polygon
+    map.fitBounds(polygon.getBounds());
+    //POLYGON
+
+
+
+
+
+
+
+
+    //KECAMATAN DATUK BANDAR TIMUR================================================
+
+    //POLYLINE
+    latlngs = [
+
+        //KECAMATAN DBT
+
+        [2.964248, 99.810225], //PERBATASAN DB
+        [2.962298, 99.806684],
+        [2.959812, 99.80529],
+        [2.958548, 99.805526],
+        [2.957627, 99.80647],
+        [2.956834, 99.807457],
+        [2.956255, 99.805655],
+        [2.955762, 99.804882],
+        [2.957277, 99.804371],
+        [2.956763, 99.802343],
+        [2.956516, 99.802246],
+        [2.956645, 99.801431],
+        [2.956934, 99.801345],
+        [2.956913, 99.798781],
+        [2.956409, 99.798952],
+        [2.956055, 99.798341],
+        [2.95687, 99.79774],
+        [2.954498, 99.795053], //bts db
+        [2.928754, 99.80335], //bts db
+        [2.928761, 99.803699],
+        [2.927368, 99.810781],
+        [2.926533, 99.811963],
+        [2.926468, 99.812929],
+        [2.926254, 99.813358],
+        [2.92619, 99.814002],
+        [2.925804, 99.814409],
+        [2.925461, 99.815053],
+        [2.924947, 99.815268],
+        [2.924432, 99.815397],
+        [2.924625, 99.815718],
+        [2.924561, 99.81619],
+        [2.924175, 99.816233],
+        [2.924261, 99.817006],
+        [2.92589, 99.817756], //batas sungai
+        [2.927347, 99.818851],
+        [2.929447, 99.821061],
+        [2.931282, 99.824208],
+        [2.932697, 99.828326],
+        [2.933639, 99.830043],
+        [2.933897, 99.830686],
+        [2.933982, 99.831202],
+        [2.935482, 99.833047],
+        [2.937676, 99.83443],
+        [2.939026, 99.834773],
+        [2.939219, 99.835073],
+        [2.939733, 99.835116],
+        [2.941576, 99.83591],
+        [2.943505, 99.836383],
+        [2.943912, 99.836425],
+        [2.944383, 99.836618],
+        [2.94494, 99.836596],
+        [2.949526, 99.835953],
+        [2.951048, 99.835352],
+        [2.954091, 99.835266],
+        [2.955762, 99.834128],
+        [2.956791, 99.832047],
+        [2.958334, 99.824258],
+        [2.958012, 99.822391],
+        [2.958462, 99.820867],
+        [2.958719, 99.820566],
+        [2.959641, 99.81812],
+        [2.959941, 99.817433],
+        [2.960241, 99.81621],
+        [2.960219, 99.814322],
+        [2.960498, 99.813721],
+        [2.96352, 99.810266],
+
+
+
+    ];
+    var polygon = L.polygon(latlngs, {
+        color: 'green'
+    }).addTo(map).bindPopup('KECAMATAN DATUK BANDAR TIMUR');
+
+    // zoom the map to the polygon
+    map.fitBounds(polygon.getBounds());
+    //POLYGON
+
+
+
+
+
+
+
+
+
+    //KECAMATAN DB================================================
+
+    //POLYLINE
+    latlngs = [
+
+        //KECAMATAN DB
+
+        [2.970155, 99.782449], //perbatasan DB
+        [2.970326, 99.783393],
+        [2.969555, 99.784767],
+        [2.969598, 99.785668],
+        [2.971055, 99.78687],
+        [2.971869, 99.788072],
+        [2.971741, 99.78936],
+        [2.970926, 99.790819],
+        [2.970626, 99.792665],
+        [2.972426, 99.793609],
+        [2.973155, 99.795197],
+        [2.971297, 99.797025],
+        [2.968211, 99.796853],
+        [2.966668, 99.79857], //perbatasan DB
+        [2.966434, 99.79858],
+        [2.965834, 99.796383],
+        [2.964162, 99.796104],
+        [2.962962, 99.796341],
+        [2.963298, 99.794937],
+        [2.961369, 99.794937],
+        [2.958441, 99.79441],
+        [2.95687, 99.79774],
+        [2.954498, 99.795053], //bts db
+        [2.928754, 99.80335], //bts db
+        [2.927168, 99.797554],
+        [2.926782, 99.796438],
+        [2.926139, 99.795194],
+        [2.925368, 99.793777],
+        [2.925153, 99.793176],
+        [2.924304, 99.791664],
+        [2.923661, 99.789969],
+        [2.922011, 99.788853],
+        [2.923297, 99.788445],
+        [2.922954, 99.787072],
+        [2.922954, 99.786042],
+        [2.922354, 99.783187],
+        [2.921797, 99.779389],
+        [2.921347, 99.776728],
+        [2.921132, 99.776384],
+        [2.92104, 99.775992],
+        [2.920772, 99.775155],
+        [2.923447, 99.774195],
+        [2.923254, 99.773595],
+        [2.923297, 99.773122],
+        [2.923554, 99.772758],
+        [2.930026, 99.765633],
+        [2.939219, 99.756984],
+        [2.941319, 99.75366],
+        [2.941619, 99.753553],
+        [2.941769, 99.753252],
+        [2.942262, 99.753016],
+        [2.943248, 99.753209],
+        [2.943805, 99.753531],
+        [2.944705, 99.753448],
+        [2.946419, 99.754456],
+        [2.948191, 99.754791],
+        [2.948309, 99.75491],
+        [2.949048, 99.755081],
+        [2.949477, 99.75506],
+        [2.949623, 99.755218],
+        [2.949929, 99.755207],
+        [2.950079, 99.7554],
+        [2.950341, 99.755358],
+        [2.950513, 99.755359],
+        [2.950902, 99.75549],
+        [2.951041, 99.755511],
+        [2.951287, 99.755468],
+        [2.951566, 99.755264],
+        [2.95252, 99.755726],
+        [2.953366, 99.756745],
+        [2.953762, 99.757077],
+        [2.953987, 99.75712],
+        [2.954234, 99.757024],
+        [2.954416, 99.757056],
+        [2.954845, 99.756723],
+        [2.957898, 99.755865],
+        [2.958402, 99.75564],
+        [2.958873, 99.755597],
+        [2.959559, 99.755715],
+        [2.960598, 99.755972],
+        [2.96138, 99.756251],
+        [2.962934, 99.757045],
+        [2.964055, 99.759217],
+        [2.964484, 99.76029],
+        [2.966412, 99.761985],
+        [2.969005, 99.762565],
+        [2.968748, 99.765292],
+        [2.969005, 99.774392],
+        [2.968791, 99.776366],
+        [2.969005, 99.778298],
+        [2.969958, 99.781736],
+
+    ];
+    var polygon = L.polygon(latlngs, {
+        color: 'blue'
+    }).addTo(map).bindPopup('KECAMATAN DATUK BANDAR');
+
+    // zoom the map to the polygon
+    map.fitBounds(polygon.getBounds());
+    //POLYGON
+
+
+
+
+
+
+
+
+    const popup = L.popup()
+        .setLatLng([2.963891864663927, 99.8011165457295])
+        .setContent('TANJUNGBALAI')
+        .openOn(map);
+
+    function onMapClick(e) {
+        popup
+            .setLatLng(e.latlng)
+            .setContent(`copy untuk koordinat ${e.latlng.toString()}`)
+            .openOn(map);
+    }
+
+    map.on('click', onMapClick);
+</script>
+
+
+
+
+
+</html>

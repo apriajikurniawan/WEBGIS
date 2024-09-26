@@ -1,0 +1,129 @@
+WARNING - 2024-06-10 04:58:53 --> [DEPRECATED] Creation of dynamic property App\Controllers\Lokasi::$ModelLokasi is deprecated in APPPATH\Controllers\Lokasi.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(913): App\Controllers\Lokasi->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(493): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-06-10 04:58:59 --> [DEPRECATED] Creation of dynamic property App\Controllers\Lokasi::$ModelLokasi is deprecated in APPPATH\Controllers\Lokasi.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(913): App\Controllers\Lokasi->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(493): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-06-10 04:58:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-10 04:59:03 --> [DEPRECATED] Creation of dynamic property App\Controllers\Lokasi::$ModelLokasi is deprecated in APPPATH\Controllers\Lokasi.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(913): App\Controllers\Lokasi->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(493): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-06-10 04:59:24 --> [DEPRECATED] Creation of dynamic property App\Controllers\Lokasi::$ModelLokasi is deprecated in APPPATH\Controllers\Lokasi.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(913): App\Controllers\Lokasi->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(493): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-06-10 05:01:10 --> [DEPRECATED] Creation of dynamic property App\Controllers\Lokasi::$ModelLokasi is deprecated in APPPATH\Controllers\Lokasi.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(913): App\Controllers\Lokasi->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(493): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-06-10 05:02:25 --> [DEPRECATED] Creation of dynamic property App\Controllers\Lokasi::$ModelLokasi is deprecated in APPPATH\Controllers\Lokasi.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(913): App\Controllers\Lokasi->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(493): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-06-10 05:02:52 --> [DEPRECATED] Creation of dynamic property App\Controllers\Lokasi::$ModelLokasi is deprecated in APPPATH\Controllers\Lokasi.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(913): App\Controllers\Lokasi->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(493): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-06-10 05:12:13 --> ErrorException: Undefined array key "id"
+in APPPATH\Views\lokasi\v_data_lokasi.php on line 33.
+ 1 APPPATH\Views\lokasi\v_data_lokasi.php(33): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', 'C:\\xampp\\htdocs\\php\\pemetaan_6m\\app\\Views\\lokasi\\v_data_lokasi.php', 33)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\php\\pemetaan_6m\\app\\Views\\lokasi\\v_data_lokasi.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('lokasi/v_data_lokasi', [], true)
+ 5 APPPATH\Views\v_template.php(112): view('lokasi/v_data_lokasi')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\php\\pemetaan_6m\\app\\Views\\v_template.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('v_template', [], true)
+ 9 APPPATH\Controllers\Lokasi.php(22): view('v_template', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Lokasi->index()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Lokasi))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-06-10 05:12:37 --> ParseError: syntax error, unexpected variable "$value", expecting "->" or "?->" or "{" or "["
+in APPPATH\Views\lokasi\v_data_lokasi.php on line 18.
+ 1 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('lokasi/v_data_lokasi', [], true)
+ 3 APPPATH\Views\v_template.php(112): view('lokasi/v_data_lokasi')
+ 4 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\php\\pemetaan_6m\\app\\Views\\v_template.php')
+ 5 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('v_template', [], true)
+ 7 APPPATH\Controllers\Lokasi.php(22): view('v_template', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Lokasi->index()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Lokasi))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-06-10 05:13:20 --> ErrorException: Undefined array key "id"
+in APPPATH\Views\lokasi\v_data_lokasi.php on line 41.
+ 1 APPPATH\Views\lokasi\v_data_lokasi.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', 'C:\\xampp\\htdocs\\php\\pemetaan_6m\\app\\Views\\lokasi\\v_data_lokasi.php', 41)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\php\\pemetaan_6m\\app\\Views\\lokasi\\v_data_lokasi.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('lokasi/v_data_lokasi', [], true)
+ 5 APPPATH\Views\v_template.php(112): view('lokasi/v_data_lokasi')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\php\\pemetaan_6m\\app\\Views\\v_template.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('v_template', [], true)
+ 9 APPPATH\Controllers\Lokasi.php(22): view('v_template', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Lokasi->index()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Lokasi))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-06-10 05:13:21 --> ErrorException: Undefined array key "id"
+in APPPATH\Views\lokasi\v_data_lokasi.php on line 41.
+ 1 APPPATH\Views\lokasi\v_data_lokasi.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', 'C:\\xampp\\htdocs\\php\\pemetaan_6m\\app\\Views\\lokasi\\v_data_lokasi.php', 41)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\php\\pemetaan_6m\\app\\Views\\lokasi\\v_data_lokasi.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('lokasi/v_data_lokasi', [], true)
+ 5 APPPATH\Views\v_template.php(112): view('lokasi/v_data_lokasi')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\php\\pemetaan_6m\\app\\Views\\v_template.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('v_template', [], true)
+ 9 APPPATH\Controllers\Lokasi.php(22): view('v_template', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Lokasi->index()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Lokasi))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-06-10 05:14:14 --> ErrorException: Undefined array key "id"
+in APPPATH\Views\lokasi\v_data_lokasi.php on line 41.
+ 1 APPPATH\Views\lokasi\v_data_lokasi.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', 'C:\\xampp\\htdocs\\php\\pemetaan_6m\\app\\Views\\lokasi\\v_data_lokasi.php', 41)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\php\\pemetaan_6m\\app\\Views\\lokasi\\v_data_lokasi.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('lokasi/v_data_lokasi', [], true)
+ 5 APPPATH\Views\v_template.php(112): view('lokasi/v_data_lokasi')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\php\\pemetaan_6m\\app\\Views\\v_template.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('v_template', [], true)
+ 9 APPPATH\Controllers\Lokasi.php(22): view('v_template', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Lokasi->index()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Lokasi))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-06-10 05:14:22 --> ErrorException: Undefined array key "id"
+in APPPATH\Views\lokasi\v_data_lokasi.php on line 41.
+ 1 APPPATH\Views\lokasi\v_data_lokasi.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', 'C:\\xampp\\htdocs\\php\\pemetaan_6m\\app\\Views\\lokasi\\v_data_lokasi.php', 41)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\php\\pemetaan_6m\\app\\Views\\lokasi\\v_data_lokasi.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('lokasi/v_data_lokasi', [], true)
+ 5 APPPATH\Views\v_template.php(112): view('lokasi/v_data_lokasi')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\php\\pemetaan_6m\\app\\Views\\v_template.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('v_template', [], true)
+ 9 APPPATH\Controllers\Lokasi.php(22): view('v_template', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Lokasi->index()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Lokasi))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-06-10 05:15:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-10 05:16:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-10 05:16:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-10 05:28:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-10 05:28:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
